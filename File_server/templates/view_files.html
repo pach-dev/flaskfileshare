@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Files</title>
+    <style>
+         /* Centering the content */
+         body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          font-family: 'Times New Roman', Times, serif, sans-serif;
+          background-image: url("/static/images/background_image.jpg");
+          background-position: center;
+          background-size: auto;
+        }
+        
+        /* Styling the main content */
+        .user_area {
+          text-align: left;
+          padding: 50px;
+          background-color: #cde6f1;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+          color: #333;
+        }
+        
+        p {
+          color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="user_area">
+    <h1>Download Files</h1>
+    <ul>
+        {% for file in files %}
+            <li>
+                <a href="/download/{{ file }}">{{ file }}</a>
+                <form action="/download/{{file}}" method="get" style="display: inline;">
+                    <input type="submit" value="Download">
+                </form>
+                
+                 <!--<form action="/view/{{ file }}" method = "get" style = "display: inline;">
+                    <input type="submit" value="View in browser">
+                
+                </form> -->
+            
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
